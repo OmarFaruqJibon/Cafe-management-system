@@ -1,12 +1,13 @@
 const express = require("express");
 const connection = require("../connection");
 require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 
 
 const router = express.Router();
 
-
+// signup api
 router.post("/signup", (req, res) => {
   let user = req.body;
 
@@ -35,6 +36,59 @@ router.post("/signup", (req, res) => {
     }
   });
 });
+
+// login api
+router.post("/login", (req, res) => {
+    const user = req.body;
+  
+    let query = "select email, password, role, status from user where email=?";
+
+    connection.query(query, [user.email], (err, results) => {
+
+      if (!err) {
+        if (results.length <= 0 || results[0].password !== user.password) {
+          return res.status(401).json({ message: "Incorrect username or password" });
+
+        } else if (results[0].status === "false") {
+          return res.status(401).json({ message: "Please wait for admin approval" });
+
+        } else if (results[0].password === user.password) {
+          const response = {
+            email: results[0].email,
+            role: results[0].role,
+          };
+  
+          const accessToken = jwt.sign(response, process.env.TOKEN, {
+            expiresIn: "5h",
+          });
+  
+          res.status(200).json({
+            token: accessToken,
+            message: "User logged in",
+          });
+        } else {
+          return res
+            .status(400)
+            .json({ message: "Something went wrong! Please try again!" });
+        }
+      } else {
+        return res.status(500).json({ err });
+      }
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
