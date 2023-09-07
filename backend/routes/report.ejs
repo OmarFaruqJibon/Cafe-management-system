@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <style>
+        h2 {
+            text-align: center;
+            font-weight: 800;
+            color: rgb(104, 29, 0);
+        }
+
+        p {
+            text-align: center;
+            font-weight: 200;
+            color: rgb(104, 104, 104);
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #8b8b8b;
+            text-align: left;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>T Time</h2>
+    <p>Taste The Freshness</p>
+
+    <table style="border-collapse: collapse">
+        <tr>
+            <th>Name: <%= name%>
+            </th>
+            <th>Email: <%= email%>
+            </th>
+        </tr>
+        <tr>
+            <th>Contact Number: <%= contactNumber%>
+            </th>
+            <th>Payment Method: <%= paymentMethod%>
+            </th>
+        </tr>
+    </table>
+
+    <h5>Details:</h5>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Sub-Total</th>
+        </tr>
+        <% if(productDetails.length> 0) { %>
+            <% productDetails.forEach(product=> { %>
+                <tr>
+                    <td>
+                        <%= product.name %>
+                    </td>
+                    <td>
+                        <%= product.category %>
+                    </td>
+                    <td>
+                        <%= product.quantity %>
+                    </td>
+                    <td>
+                        <%= product.price %>
+                    </td>
+                    <td>
+                        <%= product.total %>
+                    </td>
+                </tr>
+                <% }); %>
+                    <% }%>
+    </table>
+
+    <h4>Total Bill: <%= totalAmount %>
+    </h4>
+
+</body>
+
+</html>
