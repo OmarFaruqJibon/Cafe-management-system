@@ -13,11 +13,17 @@ export class UserService {
   constructor( private http: HttpClient) { }
 
   signup(data:any){
-    return this.http.post(this.url+ "/user/signup", data, {
+    return this.http.post(this.url + "/user/signup", data, {
       headers : new HttpHeaders().set('Content-Type', 'application/json')
     })
+  };
 
-  }
+
+  login(data:any) {
+    return this.http.post(this.url + "/user/login", data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  };
 
 
 

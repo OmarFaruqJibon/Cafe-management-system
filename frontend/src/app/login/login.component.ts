@@ -7,52 +7,46 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { globalConstant } from '../shared/global-constant';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class SignupComponent implements OnInit {
-  signupForm:any = FormGroup;
-  responseMessage!: string;
+export class LoginComponent implements OnInit {
+
+  loginForm: any = FormGroup;
+  responseMessage!:any;
 
   constructor(
     private fb:FormBuilder,
     private router: Router,
     private userService: UserService,
     private snackbar: SnackbarService,
-    private dialogRef: MatDialogRef<SignupComponent>,
+    private dialogRef: MatDialogRef<LoginComponent>,
 
     ) { }
 
   ngOnInit(): void {
-    this.signupForm = this.fb.group({
-      name:['', [Validators.required, Validators.pattern(globalConstant.nameError)]],
-      email:['', [Validators.required, Validators.pattern(globalConstant.emailError)]],
-      contactNumber:['', [Validators.required, Validators.pattern(globalConstant.contactNumberError)]],
-      password:['', [Validators.required]]
-    })
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.pattern(globalConstant.emailError)]],
+      password: ['', [Validators.required]]
+    });
+  }
 
-  };
-
-
-  handleSubmit() {
-
-    const formData = this.signupForm.value;
+  handleSubmit(){
+    const formData = this.loginForm.value;
     const data = {
-      name: formData.name,
       email: formData.email,
-      phone: formData.contactNumber,
       password: formData.password
     }
-
     console.log(data);
-    
-    this.userService.signup(data).subscribe(
+
+    this.userService.login(data).subscribe(
       (resp: any) => {
         this.dialogRef.close();
         this.responseMessage = resp?.message;
+        localStorage.setItem('token', resp?.token)
         this.snackbar.openSnackBar(this.responseMessage, '');
-        this.router.navigate(['/']);
+        this.router.navigate(['/cafe/dashboard']);
       },
       (error) => {
         if (error.error?.message) {
@@ -64,24 +58,5 @@ export class SignupComponent implements OnInit {
       }
     );
 
-
-
-
-
-  };
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
+  }
 }
