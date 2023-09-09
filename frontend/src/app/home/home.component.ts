@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SignupComponent } from '../signup/signup.component';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  signup(){
+    const dialogbox = new MatDialogConfig();
+    dialogbox.width = "600px";
+    this.dialog.open(SignupComponent, dialogbox)
+  }
   
 }

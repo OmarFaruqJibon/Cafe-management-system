@@ -19,6 +19,18 @@ body {
   color: white;
 }
 
+
+
+.header-menu li a{
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+
+
+
+
 /* Style the top navigation bar */
 .navbar {
   display: flex;
@@ -114,7 +126,7 @@ body {
   display: flex;
   align-items: center;
   justify-content:center;
-  // background-color: #3f1a01;
+  background-color: #251103;
 }
 
 nav {
