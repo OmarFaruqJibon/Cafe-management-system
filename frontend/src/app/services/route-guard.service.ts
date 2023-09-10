@@ -3,6 +3,7 @@ import { globalConstant } from '../shared/global-constant';
 import { AuthService } from './auth.service';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { SnackbarService } from './snackbar.service';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +43,7 @@ export class RouteGuardService {
       }
 
       this.snackBar.openSnackBar(
-        globalConstant.unauthorize,
+        globalConstant.generelError,
         globalConstant.error
       );
 
@@ -54,7 +55,4 @@ export class RouteGuardService {
       return false;
     }
   }
-}
-function jwt_decode(token: string): any {
-  throw new Error('Function not implemented.');
 }
