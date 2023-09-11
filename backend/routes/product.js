@@ -114,6 +114,7 @@ router.put("/delete-product/:id", auth.authenticate, role.checkRole, (req, res) 
 });
 
 
+
 //update product status
 router.patch("/update-product-status", auth.authenticate, role.checkRole, (req, res, next) => {
     const product = req.body;
