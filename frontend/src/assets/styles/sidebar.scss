@@ -35,7 +35,7 @@ mat-sidenav {
                   margin-right: 8px;
               }
               mat-icon{
-                  color:red;
+                  color:rgb(31, 31, 31);
               }
               .dd-icon{
                   font-size: 16px;
@@ -46,7 +46,7 @@ mat-sidenav {
               }
           }
           &.selected > .mat-list-item-content > a{
-              background: yellow;
+              background: rgb(1, 102, 9);
               border-radius: 30px;
               color:white;
               
@@ -61,7 +61,7 @@ mat-sidenav {
           }
           &.selected .sub-item .mat-list-item-content a.selected{
               background: transparent;
-              color:green;
+              color:rgb(0, 0, 0);
               font-weight: 500;               
           }
       }

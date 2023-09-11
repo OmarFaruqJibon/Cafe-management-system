@@ -3,6 +3,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Poppins', sans-serif !important;; }
 
+.mat-drawer-container{
+  height: 555px !important;
+}
+
   //responsibe table
   @media(max-width: 800px) {
     .responsive_table {
