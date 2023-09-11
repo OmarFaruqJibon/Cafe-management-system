@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SnackbarService } from 'src/app/services/snackbar.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { globalConstant } from 'src/app/shared/global-constant';
 import { ProductComponent } from '../dialog/product/product.component';
 import { ProductService } from 'src/app/services/product.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-manage-product',
@@ -35,9 +35,9 @@ export class ManageProductComponent implements OnInit {
   }
 
   tableData() {
-    this.productService.getProduct().subscribe(
+    this.productService.getProducts().subscribe(
       (resp: any) => {
-        this.dataSource = new MatTableDataSource(resp.data);
+        this.dataSource = new MatTableDataSource(resp);
         console.log(resp);
       },
       (error) => {

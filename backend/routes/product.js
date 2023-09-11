@@ -25,8 +25,7 @@ router.post("/add-product", auth.authenticate, role.checkRole, (req, res) => {
 
 // get all products
 router.get("/get-products", auth.authenticate, role.checkRole, (req, res) => {
-    const query = "select * from product";
-
+    const query = "select p.id, p.name, p.description, p.price, p.status, c.id as categoryID, c.name as categoryName from product as p INNER JOIN category as c where p.categoryID=c.id ";
     connection.query(query, (err, results) => {
         if (!err) {
             return res.status(200).json(results)

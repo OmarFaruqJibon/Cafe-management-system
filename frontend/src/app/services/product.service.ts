@@ -30,7 +30,7 @@ export class ProductService {
     );
   }
 
-  getProduct() {
+  getProducts() {
     return this.http.get(`${this.url}/product/get-products`);
   }
 
@@ -42,7 +42,7 @@ export class ProductService {
   }
 
   getProductsByCategory(id: any) {
-    return this.http.get(`${this.url}/product/getByCategoryID/${id}`);
+    return this.http.get(`${this.url}/product/get-by-category/${id}`);
   }
 
   getById(id: any) {
