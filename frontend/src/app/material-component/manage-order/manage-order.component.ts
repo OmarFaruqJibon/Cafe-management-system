@@ -90,7 +90,7 @@ export class ManageOrderComponent implements OnInit {
         this.manageOrderForm.controls['price'].setValue('');
         this.manageOrderForm.controls['quantity'].setValue('');
         this.manageOrderForm.controls['total'].setValue(0);
-        console.log('total ' + this.manageOrderForm.controls['total'].value);
+        // console.log('total ' + this.manageOrderForm.controls['total'].value);
       },
       (error) => {
         if (error.error?.message) {

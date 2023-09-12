@@ -6,6 +6,7 @@ import { BillService } from 'src/app/services/bill.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { globalConstant } from 'src/app/shared/global-constant';
 import { ViewBillProductsComponent } from '../dialog/view-bill-products/view-bill-products.component';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-manage-bills',
@@ -70,7 +71,49 @@ export class ManageBillsComponent implements OnInit {
     });
   }
 
-  downloadReportAction(value: any) {}
+  downloadReportAction(value: any) {
+    let data = {
+      name: value.name,
+      email: value.email,
+      uuid: value.uuid,
+      contactNumber: value.contactNumber,
+      paymentMethod: value.paymentMethod,
+      totalAmount: value.total,
+      productDetails: value.productDetails,
+    };
 
-  handleDeleteAction(value: any) {}
+    this.billService.getPDF(data).subscribe((resp) => {
+      saveAs(resp, value.uuid + '.pdf');
+    });
+  }
+
+  handleDeleteAction(value: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'delete ' + value.name + ' bill',
+    };
+
+    const confirmation = 'Want to delete this bill?';
+    if (confirm(confirmation) == true) {
+      this.deleteProduct(value.id);
+    }
+  }
+
+  deleteProduct(id: any) {
+    this.billService.delete(id).subscribe(
+      (resp: any) => {
+        this.tableData();
+        this.responseMessage = resp?.message;
+        this.snackbar.openSnackBar(this.responseMessage, 'success');
+      },
+      (error) => {
+        if (error.error?.message) {
+          this.responseMessage = error.error?.message;
+        } else {
+          this.responseMessage = globalConstant.generelError;
+        }
+        this.snackbar.openSnackBar(this.responseMessage, globalConstant.error);
+      }
+    );
+  }
 }
