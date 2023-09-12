@@ -5,7 +5,6 @@ const app = require("./index");
 
 const server = http.createServer(app);
 
-
-server.listen(process.env.PORT, ()=>{
+server.listen(process.env.PORT, () => {
     console.log('Running on port: ', process.env.PORT);
 });

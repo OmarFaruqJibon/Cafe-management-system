@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 const auth = require("../service/authentication");
 const role = require("../service/role");
 
-
 const router = express.Router();
 
 // signup api
@@ -78,8 +77,6 @@ router.post("/login", (req, res) => {
     }
   });
 });
-
-
 
 // get users
 router.get('/get-user', auth.authenticate, role.checkRole, (req, res) => {

@@ -5,7 +5,6 @@ const role = require("../service/role");
 
 const router = express.Router();
 
-
 //add Category
 router.post("/add-category", auth.authenticate, role.checkRole, (req, res, next) => {
     let category = req.body;

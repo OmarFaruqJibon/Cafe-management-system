@@ -5,6 +5,38 @@
     padding: 20px;
 }
 
-table{
-    width: 100%;
+.content-title{
+    margin-top: 10px;
+    color: black;
+    font-size: 16px;
+}
+
+.mat-form-field{
+    background-color: rgb(240, 240, 240);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    margin-right: 5px;
+    border-bottom: 1px solid rgb(119, 119, 119) !important;
+
+}
+.order-form{
+    color: black !important;
+}
+.mat-form-field {
+    color: black;
+}
+.mat-option{
+    color: rgb(2, 2, 2);
+    background-color: rgb(240, 240, 240);;
+}
+.mat-select-value-text{
+    color: rgb(2, 2, 2) !important;
+
+}
+.mat-label{
+    color: black !important;
+}
+
+.select-items{
+    color: rgb(238, 238, 238);
+    background-color: rgb(49, 49, 49)!important;
 }
