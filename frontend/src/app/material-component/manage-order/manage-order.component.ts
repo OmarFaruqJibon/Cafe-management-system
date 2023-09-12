@@ -106,7 +106,7 @@ export class ManageOrderComponent implements OnInit {
   getProductDetails(value: any) {
     this.productService.getById(value.id).subscribe(
       (resp: any) => {
-        console.log('details ' + resp.price);
+        // console.log('details ' + resp.price);
         this.price = resp.price;
         this.manageOrderForm.controls['price'].setValue(resp.price);
         this.manageOrderForm.controls['quantity'].setValue('1');
@@ -172,6 +172,7 @@ export class ManageOrderComponent implements OnInit {
     let productName = this.dataSource.find(
       (e: { id: number }) => e.id == formData.product.id
     );
+
     if (productName === undefined) {
       this.totalAmount += formData.total;
       this.dataSource.push({
@@ -184,13 +185,17 @@ export class ManageOrderComponent implements OnInit {
       });
 
       this.dataSource = [...this.dataSource];
-      this.snackBar.openSnackBar(globalConstant.generelError, 'success');
+      this.snackBar.openSnackBar(
+        this.responseMessage,
+        globalConstant.addSuccess
+      );
     } else {
       this.snackBar.openSnackBar(
         globalConstant.generelError,
         globalConstant.error
       );
     }
+    // console.log(formData);
   }
 
   handleDeletAction(value: any, element: any) {
@@ -232,7 +237,7 @@ export class ManageOrderComponent implements OnInit {
     let data = {
       uuid: fileName,
     };
-
+    // console.log(fileName);
     this.billService.getPDF(data).subscribe((resp: any) => {
       saveAs(resp, fileName + '.pdf');
     });

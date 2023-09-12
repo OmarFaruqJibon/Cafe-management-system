@@ -16,20 +16,20 @@ export class BillService {
 
   generateReport(data: any) {
     return this.http.post(
-      `${this.url}/bill/generateReport`,
+      `${this.url}/bill/generate-report`,
       data,
       this.jsonHeader
     );
   }
 
   getPDF(data: any): Observable<Blob> {
-    return this.http.post(`${this.url}/bill//get-pdf`, data, {
+    return this.http.post(`${this.url}/bill/get-pdf`, data, {
       responseType: 'blob',
     });
   }
 
   getBills() {
-    return this.http.get(`${this.url}/bill//get-bills`);
+    return this.http.get(`${this.url}/bill/get-bills`);
   }
 
   delete(id: any) {

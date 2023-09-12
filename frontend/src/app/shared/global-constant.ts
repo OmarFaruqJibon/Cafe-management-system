@@ -12,4 +12,6 @@ export class globalConstant {
 
   public static unauthorize: string =
     'You are not authorized to visit this page.';
+
+  public static addSuccess: string = 'Add Successfully.';
 }
