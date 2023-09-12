@@ -13,13 +13,7 @@ mat-sidenav {
           
           .mat-list-item-content{
               display: block;
-              padding: 0px 15px;
-              &:hover{
-                  background: none;
-                  > a{
-                    color:black;
-                  }
-              }
+              padding: 0px 10px;
           }
           
           a{
@@ -30,12 +24,12 @@ mat-sidenav {
               display: flex;
               font-size: 15px;
               white-space: nowrap;
-              color:green;
+              color:rgb(235, 235, 235);
               mat-icon:not(.dd-icon){
                   margin-right: 8px;
               }
               mat-icon{
-                  color:rgb(31, 31, 31);
+                  color:crimson;
               }
               .dd-icon{
                   font-size: 16px;
@@ -46,9 +40,9 @@ mat-sidenav {
               }
           }
           &.selected > .mat-list-item-content > a{
-              background: rgb(1, 102, 9);
+              background: crimson;
               border-radius: 30px;
-              color:white;
+              color: white;
               
               mat-icon{
                   color:white;

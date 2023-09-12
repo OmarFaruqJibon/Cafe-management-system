@@ -1,11 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800&display=swap');
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Poppins', sans-serif !important;; }
+body { margin: 0; font-family: 'Poppins', sans-serif !important}
 
 .mat-drawer-container{
   height: 555px !important;
+  background-color: white !important;
 }
+.mat-drawer{
+  background-color: #03071c !important;
+}
+.mat-card{
+  background-color: #ffffff !important;
+}
+.mat-table{
+  background-color: #ffffff !important;
+  color: black;
+  width: 97%;
+  margin: 20px;
+}
+.mat-toolbar.mat-primary {
+  background: #073640  !important;
+}
+
+th{
+  color: black !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid rgb(201, 201, 201) !important;
+}
+td{
+  color: black !important;
+  border-bottom: 1px solid rgb(201, 201, 201) !important;
+}
+
+
+
+.filter{
+  width: 80%;
+  margin-top: 20px;
+  background-color: none !important;
+  box-shadow: none !important;
+}
+.filter input{
+  border-bottom: 2px solid black;
+  color: black;
+  // background-color: rgb(197, 197, 197);
+}
+
+.content-table td{
+  background-color: rgb(235, 235, 235) !important;
+  color: black;
+}
+
+
+
+
+
+
+
+
 
   //responsibe table
   @media(max-width: 800px) {
@@ -34,7 +88,7 @@ body { margin: 0; font-family: 'Poppins', sans-serif !important;; }
   }
 
   .green-snackbar {
-    background: #01861e !important;
+    background: #007018 !important;
     color: white !important;
   }
 

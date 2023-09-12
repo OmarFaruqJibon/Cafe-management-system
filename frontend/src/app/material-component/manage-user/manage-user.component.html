@@ -1,13 +1,12 @@
-<mat-card>
+<mat-card class="content-body">
     <b>
-        <span>Manage Users</span>
+        <span class="content-title">Manage Users</span>
     </b>
 </mat-card>
 
-<hr />
-<mat-card>
+<mat-card class="filter">
     <mat-form-field appearance="fill">
-        <mat-label>Filter</mat-label>
+        <mat-label style="color: black;">Filter</mat-label>
         <input type="text" matInput (keyup)="applyFilter($event)" #input />
     </mat-form-field>
 </mat-card>

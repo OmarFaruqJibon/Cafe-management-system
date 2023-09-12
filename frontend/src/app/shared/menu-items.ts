@@ -8,12 +8,12 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'dashboard', name: 'Dashboard', icon: 'dashboard', role: '' },
+  { state: 'dashboard', name: 'Dashboard', icon: 'space_dashboard', role: '' },
   { state: 'category', name: 'Category', icon: 'category', role: 'admin' },
-  { state: 'product', name: 'Products', icon: 'coffee', role: 'admin' },
-  { state: 'order', name: 'Order', icon: 'coffee', role: '' },
-  { state: 'bill', name: 'Bill', icon: 'coffee', role: '' },
-  { state: 'user', name: 'Manage User', icon: 'User', role: 'admin' },
+  { state: 'product', name: 'Products', icon: 'inventory', role: 'admin' },
+  { state: 'order', name: 'Order', icon: 'shopping_cart_checkout', role: '' },
+  { state: 'bill', name: 'Bill', icon: 'receipt_long', role: '' },
+  { state: 'user', name: 'Manage User', icon: 'person', role: 'admin' },
 ];
 
 @Injectable()
