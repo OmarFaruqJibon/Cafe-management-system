@@ -82,7 +82,7 @@ router.post("/login", (req, res) => {
 
 
 // get users
-router.get('/get', auth.authenticate, role.checkRole, (req, res) => {
+router.get('/get-user', auth.authenticate, role.checkRole, (req, res) => {
   const query = 'select id, name, email, phone, status from user where role="user"';
 
   connection.query(query, (err, results) => {
@@ -94,8 +94,8 @@ router.get('/get', auth.authenticate, role.checkRole, (req, res) => {
   })
 });
 
-// update api
-router.patch("/update", auth.authenticate, role.checkRole, (req, res) => {
+// update user
+router.patch("/update-user", auth.authenticate, role.checkRole, (req, res) => {
   let user = req.body;
   let query = "update user set status=? where id=?";
   connection.query(query, [user.status, user.id], (err, results) => {

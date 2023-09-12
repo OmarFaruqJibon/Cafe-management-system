@@ -25,4 +25,14 @@ export class UserService {
   checkToken() {
     return this.http.get(this.url + '/user/checkToken');
   }
+
+  getUsers() {
+    return this.http.get(this.url + '/user/get-user');
+  }
+
+  update(data: any) {
+    return this.http.patch(this.url + '/user/update-user', data, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+    });
+  }
 }
