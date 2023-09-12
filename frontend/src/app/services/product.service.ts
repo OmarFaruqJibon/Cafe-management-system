@@ -46,6 +46,6 @@ export class ProductService {
   }
 
   getById(id: any) {
-    return this.http.get(`${this.url}/product/getByID/${id}`);
+    return this.http.get(`${this.url}/product/get-by-id/${id}`);
   }
 }

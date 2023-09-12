@@ -85,10 +85,12 @@ export class ManageOrderComponent implements OnInit {
   getProductsByCategory(value: any) {
     this.productService.getProductsByCategory(value.id).subscribe(
       (resp: any) => {
-        this.products = resp.data;
-        this.manageOrderForm.controls.price.setValue('');
-        this.manageOrderForm.controls.quantity.setValue('');
-        this.manageOrderForm.controls.total.setValue(0);
+        // console.log(resp);
+        this.products = resp;
+        this.manageOrderForm.controls['price'].setValue('');
+        this.manageOrderForm.controls['quantity'].setValue('');
+        this.manageOrderForm.controls['total'].setValue(0);
+        console.log('total ' + this.manageOrderForm.controls['total'].value);
       },
       (error) => {
         if (error.error?.message) {
@@ -104,10 +106,11 @@ export class ManageOrderComponent implements OnInit {
   getProductDetails(value: any) {
     this.productService.getById(value.id).subscribe(
       (resp: any) => {
-        this.price = resp.data.price;
-        this.manageOrderForm.controls.price.setValue(resp.data.price);
-        this.manageOrderForm.controls.quantity.setValue(1);
-        this.manageOrderForm.controls.total.setValue(this.price * 1);
+        console.log('details ' + resp.price);
+        this.price = resp.price;
+        this.manageOrderForm.controls['price'].setValue(resp.price);
+        this.manageOrderForm.controls['quantity'].setValue('1');
+        this.manageOrderForm.controls['total'].setValue(this.price * 1);
       },
       (error) => {
         if (error.error?.message) {
@@ -121,26 +124,26 @@ export class ManageOrderComponent implements OnInit {
   }
 
   setQuantity(value: any) {
-    let temp = this.manageOrderForm.controls.quantity.value;
+    let temp = this.manageOrderForm.controls['quantity'].value;
     if (temp > 0) {
-      this.manageOrderForm.controls.total.setValue(
-        this.manageOrderForm.controls.quantity.value *
-          this.manageOrderForm.controls.price.value
+      this.manageOrderForm.controls['total'].setValue(
+        this.manageOrderForm.controls['quantity'].value *
+          this.manageOrderForm.controls['price'].value
       );
     } else if (temp != '') {
-      this.manageOrderForm.controls.quantity.setValue('1');
-      this.manageOrderForm.controls.total.setValue(
-        this.manageOrderForm.controls.quantity.value *
-          this.manageOrderForm.controls.price.value
+      this.manageOrderForm.controls['quantity'].setValue('1');
+      this.manageOrderForm.controls['total'].setValue(
+        this.manageOrderForm.controls['quantity'].value *
+          this.manageOrderForm.controls['price'].value
       );
     }
   }
 
   validateProductAdd() {
     if (
-      this.manageOrderForm.controls.total.value === 0 ||
-      this.manageOrderForm.controls.total.value === null ||
-      this.manageOrderForm.controls.quantity.value <= 0
+      this.manageOrderForm.controls['total'].value === 0 ||
+      this.manageOrderForm.controls['total'].value === null ||
+      this.manageOrderForm.controls['quantity'].value <= 0
     ) {
       return true;
     } else {
