@@ -48,10 +48,10 @@ router.post("/login", (req, res) => {
 
     if (!err) {
       if (results.length <= 0 || results[0].password !== user.password) {
-        return res.status(401).json({ message: "Incorrect username or password" });
+        return res.status(401).json({ message: "Incorrect username or password!" });
 
       } else if (results[0].status === "false") {
-        return res.status(401).json({ message: "Please wait for admin approval" });
+        return res.status(401).json({ message: "Please wait for admin approval." });
 
       } else if (results[0].password === user.password) {
         const response = {
@@ -108,12 +108,10 @@ router.patch("/update-user", auth.authenticate, role.checkRole, (req, res) => {
   });
 });
 
-
 //checking token
 router.get("/checkToken", auth.authenticate, (req, res) => {
   return res.status(200).json({ message: "true" });
 });
-
 
 //password changing api
 router.post("/changePassword", auth.authenticate, (req, res) => {
@@ -144,8 +142,6 @@ router.post("/changePassword", auth.authenticate, (req, res) => {
     }
   });
 });
-
-
 
 module.exports = router;
 
