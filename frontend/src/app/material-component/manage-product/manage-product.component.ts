@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { globalConstant } from 'src/app/shared/global-constant';
 import { ProductComponent } from '../dialog/product/product.component';
 import { ProductService } from 'src/app/services/product.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-product',

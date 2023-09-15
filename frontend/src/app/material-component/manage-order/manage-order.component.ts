@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { BillService } from 'src/app/services/bill.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -13,7 +17,7 @@ import { saveAs } from 'file-saver';
   styleUrls: ['./manage-order.component.scss'],
 })
 export class ManageOrderComponent implements OnInit {
-  manageOrderForm: any = FormGroup;
+  manageOrderForm: any = UntypedFormGroup;
   displayedColumns: string[] = [
     'name',
     'category',
@@ -30,7 +34,7 @@ export class ManageOrderComponent implements OnInit {
   responseMessage: any;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private categoryService: CategoryService,
     private productService: ProductService,
     private snackBar: SnackbarService,

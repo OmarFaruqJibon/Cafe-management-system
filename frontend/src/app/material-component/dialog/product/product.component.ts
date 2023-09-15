@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -14,7 +14,7 @@ import { globalConstant } from 'src/app/shared/global-constant';
 export class ProductComponent implements OnInit {
   onAddProduct = new EventEmitter();
   onEditProduct = new EventEmitter();
-  productForm: any = FormGroup;
+  productForm: any = UntypedFormGroup;
   dialogAction: any = 'Add';
   action: any = 'Add';
   responseMessage: any;
@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialogData: any,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private productService: ProductService,
     private categoryService: CategoryService,
     public dialogRef: MatDialogRef<ProductComponent>,

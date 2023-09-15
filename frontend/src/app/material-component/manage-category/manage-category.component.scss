@@ -6,12 +6,27 @@
 }
 
 .content-body{
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(196, 23, 23);
+    margin-top: 50px;
   }
 
 .content-title{
     margin-top: 10px;
     color: black;
     font-size: 16px;
+    // background-color: white;
+    padding: 20px;
+}
+
+.responsive_table{
+    padding-right: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.mat-elevation-z8{
+    background-color: rgb(240, 240, 240) !important;
+    text-align: center;
 }
 

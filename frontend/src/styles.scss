@@ -21,6 +21,8 @@ body { margin: 0; font-family: 'Poppins', sans-serif !important}
 }
 .mat-toolbar.mat-primary {
   background: #073640  !important;
+  display: flex !important;
+  justify-content: space-between !important;
 }
 
 th{
