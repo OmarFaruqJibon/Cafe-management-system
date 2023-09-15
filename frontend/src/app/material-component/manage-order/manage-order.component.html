@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="order-header">
     <b>
         <span class="content-title">Manage Orders</span>
         <button mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
@@ -8,8 +8,8 @@
     </b>
 </mat-card>
 
-<mat-card>
-    <b><span>Customer Details</span></b>
+<mat-card class="order-body">
+    <b><span style="margin-bottom: 10px;">Customer Details</span></b>
 
     <form class="order-form" [formGroup]="manageOrderForm">
         <div fxFlex fxLayout="column">
@@ -17,7 +17,7 @@
 
                 <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
 
-                    <mat-label class="mat-label">Name</mat-label>
+                    <mat-label class="mat-label" style="color: rgb(255, 255, 255);">Name</mat-label>
 
                     <input type="text" matInput formControlName="name" required />
                     <mat-error *ngIf="manageOrderForm.controls.name.touched &&  manageOrderForm.controls.name.invalid">
@@ -29,7 +29,7 @@
                 </mat-form-field>
 
 
-                <mat-form-field appearance="fill" fxFlex>
+                <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label class="mat-label">Email</mat-label>
                     <input type="text" matInput formControlName="email" required />
                     <mat-error *ngIf="manageOrderForm.controls.email.touched && manageOrderForm.controls.email.invalid">
@@ -40,7 +40,7 @@
                 </mat-form-field>
 
 
-                <mat-form-field appearance="fill" fxFlex>
+                <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label class="mat-label">Contact Number</mat-label>
                     <input type="text" matInput formControlName="contactNumber" required />
                     <mat-error
@@ -72,12 +72,12 @@
 </mat-card>
 
 
-<mat-card>
-    <b><span>Select Product</span></b>
+<mat-card class="order-body">
+    <b><span style="padding-bottom: 10px;">Select Product</span></b>
     <form [formGroup]="manageOrderForm">
         <div fxFlex fxLayout="column">
             <div fxLayout="'row wrap">
-                <mat-form-field class="select-items" appearance="fill" fxFlex>
+                <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
 
                     <mat-label>Category</mat-label>
                     <mat-select formControlName="category" (selectionChange)="getProductsByCategory($event.value)"
@@ -92,7 +92,7 @@
                 </mat-form-field>
 
 
-                <mat-form-field class="select-items" appearance="fill" fxFlex>
+                <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label>Product</mat-label>
                     <mat-select formControlName="product" (selectionChange)="getProductDetails($event.value)" required>
                         <mat-option *ngFor="let product of products" [value]="product">{{ product.name}}</mat-option>
@@ -105,7 +105,7 @@
                 </mat-form-field>
 
 
-                <mat-form-field appearance="fill" fxFlex>
+                <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label class="mat-label">Price</mat-label>
                     <input type="text" matInput formControlName="price" required readonly />
                     <mat-error *ngIf="manageOrderForm.controls.price.touched && manageOrderForm.controls.price.invalid">
@@ -115,7 +115,7 @@
                     </mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" fxFlex>
+                <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label class="mat-label">Quantity</mat-label>
                     <input matInput formControlName="quantity" (keyup)="setQuantity($event)" #input />
                     <mat-error
@@ -138,6 +138,7 @@
             </div>
         </div>
     </form>
+
     <div>
         <button mat-flat-button color="primary" matTooltip="Add Order" [disabled]="validateProductAdd()"
             (click)="add()">
@@ -148,7 +149,11 @@
             Total Amount: {{ totalAmount }}
         </button>
     </div>
+
+
 </mat-card>
+
+
 
 <div class="responsive_table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
