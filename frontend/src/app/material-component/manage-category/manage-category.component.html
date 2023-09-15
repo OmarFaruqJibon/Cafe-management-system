@@ -7,10 +7,9 @@
     </b>
 </mat-card>
 
-
 <mat-card class="filter">
-    <mat-form-field appearance="fill">
-        <mat-label style="color: black;">Filter</mat-label>
+    <mat-form-field class="filter-body" appearance="fill">
+        <mat-label style="color: rgb(255, 255, 255);">Filter</mat-label>
         <input type="text" matInput (keyup)="applyFilter($event)" #input />
     </mat-form-field>
 </mat-card>
