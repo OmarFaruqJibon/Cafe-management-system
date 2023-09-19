@@ -9,17 +9,17 @@ export class SnackbarService {
 
   openSnackBar(message: string, action: string) {
     if (action === 'error') {
-      this.snackbar.open(message, 'okay', {
-        horizontalPosition: 'right',
-        verticalPosition: 'bottom',
-        duration: 1500,
+      this.snackbar.open(message, 'Try Again', {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        duration: 3000,
         panelClass: ['black-snackbar'],
       });
     } else {
-      this.snackbar.open(message, 'okay', {
-        horizontalPosition: 'right',
-        verticalPosition: 'bottom',
-        duration: 1500,
+      this.snackbar.open(message, 'Okay', {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        duration: 2000,
         panelClass: ['green-snackbar'],
       });
     }

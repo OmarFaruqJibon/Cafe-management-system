@@ -1,22 +1,16 @@
 <mat-card class="order-header">
     <b>
         <span class="content-title">Manage Orders</span>
-        <!-- <button mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
-            (click)="submitAction()">
-            Submit & Get Bill
-        </button> -->
     </b>
 </mat-card>
 
 <mat-card class="order-body">
     <b><span style="margin-bottom: 10px;">Customer Details</span></b>
-
     <form class="order-form" [formGroup]="manageOrderForm">
         <div fxFlex fxLayout="column">
             <div fxLayout="row wrap">
 
                 <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
-
                     <mat-label class="mat-label" style="color: rgb(255, 255, 255);">Name</mat-label>
 
                     <input type="text" matInput formControlName="name" required />
@@ -25,16 +19,13 @@
 
                         <span *ngIf="manageOrderForm.controls.name.errors.pattern">This field is invalid</span>
                     </mat-error>
-
                 </mat-form-field>
-
 
                 <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label class="mat-label">Email</mat-label>
                     <input type="text" matInput formControlName="email" required />
                     <mat-error *ngIf="manageOrderForm.controls.email.touched && manageOrderForm.controls.email.invalid">
                         <span *ngIf="manageOrderForm.controls.email.errors.required">This field is mandatory</span>
-
                         <span *ngIf="manageOrderForm.controls.email.errors.pattern">This field is invalid</span>
                     </mat-error>
                 </mat-form-field>
@@ -47,11 +38,9 @@
                         *ngIf="manageOrderForm.controls.contactNumber.touched && manageOrderForm.controls.contactNumber.invalid">
                         <span *ngIf="manageOrderForm.controls.contactNumber.errors.required">This field
                             ismandatory</span>
-
                         <span *ngIf="manageOrderForm.controls.contactNumber.errors.pattern">This field is invalid</span>
                     </mat-error>
                 </mat-form-field>
-
 
                 <mat-form-field class="select-items" appearance="fill" fxFlex>
                     <mat-label>Payment Method</mat-label>
@@ -70,7 +59,6 @@
         </div>
     </form>
 </mat-card>
-
 
 <mat-card class="order-body">
     <b><span style="padding-bottom: 10px;">Select Product</span></b>
@@ -91,7 +79,6 @@
                     </mat-error>
                 </mat-form-field>
 
-
                 <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label>Product</mat-label>
                     <mat-select formControlName="product" (selectionChange)="getProductDetails($event.value)" required>
@@ -104,13 +91,11 @@
                     </mat-error>
                 </mat-form-field>
 
-
                 <mat-form-field class="mat-form-field" appearance="fill" fxFlex>
                     <mat-label class="mat-label">Price</mat-label>
                     <input type="text" matInput formControlName="price" required readonly />
                     <mat-error *ngIf="manageOrderForm.controls.price.touched && manageOrderForm.controls.price.invalid">
                         <span *ngIf="manageOrderForm.controls.price.errors.required">This field is mandatory</span>
-
                         <span *ngIf="manageOrderForm.controls.price.errors.pattern">This field is invalid</span>
                     </mat-error>
                 </mat-form-field>
@@ -123,7 +108,6 @@
                         <span *ngIf="manageOrderForm.controls.quantity.errors.required">This field is mandatory</span>
                     </mat-error>
                 </mat-form-field>
-
 
                 <mat-form-field appearance="fill" fxFlex>
                     <mat-label class="mat-label">Total</mat-label>
@@ -145,26 +129,14 @@
             Add
         </button>
 
-
-
-
         <button class="submit-bill" mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
             (click)="submitAction()">
             Submit & Get Bill
         </button>
-
         <p class="totalAmount float-right"> Total Amount: {{ totalAmount }} </p>
 
-
-        <!-- <button mat-flat-button color="primary" class="float-right">
-            Total Amount: {{ totalAmount }}
-        </button> -->
-
     </div>
-
-
 </mat-card>
-
 
 
 <div class="responsive_table">
@@ -203,17 +175,10 @@
             </td>
         </ng-container>
 
-
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-
     </table>
 
-    <!-- <button class="submit-bill" mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
-        (click)="submitAction()">
-        Submit & Get Bill
-    </button> -->
 
 </div>
