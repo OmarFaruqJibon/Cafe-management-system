@@ -32,7 +32,6 @@ export class ManageCategoryComponent implements OnInit {
     this.categoryService.getCategory().subscribe(
       (resp: any) => {
         this.dataSource = new MatTableDataSource(resp.data);
-        console.log(resp);
       },
       (error) => {
         if (error.error?.message) {

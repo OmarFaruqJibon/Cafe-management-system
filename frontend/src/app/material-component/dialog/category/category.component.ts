@@ -1,10 +1,13 @@
 import { Component, OnInit, EventEmitter, Inject } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CategoryService } from 'src/app/services/category.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { globalConstant } from 'src/app/shared/global-constant';
-
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',

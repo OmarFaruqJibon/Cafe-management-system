@@ -1,11 +1,8 @@
 <div class="main-container">
     <mat-toolbar color="primary" class="topbar telative">
         <div class="navbar-header">
-
-
             <button *ngIf="mobileQuery.matches" mat-icon-button (click)="snav.toggle()" value="sidebarclosed"
                 style="vertical-align: bottom;">
-
                 <mat-icon>menu</mat-icon>
             </button>
 
@@ -13,55 +10,36 @@
                 T Time
                 <span style="color: rgb(224, 224, 224); font-size: 10px;">- Cafe Management System</span>
             </span>
-
-        </div>
-
-        <div>
-
-            <button class="button" [routerLink]="['/cafe/deshboard']">
-                Dashboard
-            </button>
-            <button class="button" [routerLink]="['/cafe/category']">
-                View Categories
-            </button>
-            <button class="button" [routerLink]="['/cafe/product']">
-                View Products
-            </button>
-            <button class="button" [routerLink]="['/cafe/order']">
-                Order
-            </button>
-            <button class="button" [routerLink]="['/cafe/bill']">
-                View Bills
-            </button>
-
-            <button class="button" [routerLink]="['/cafe/user']">
-                Manage User
-            </button>
         </div>
 
 
+        <!-- Header Navigation -->
+        <!-- <div>
+            <ul class="header-menu">
+                <li *ngFor="let menuItem of menuItems.getMenuItems()" routerLinkActive="active">
+                    <a [routerLink]="['/cafe/', menuItem.state]"
+                        *ngIf="menuItem.role === '' || menuItem.role === tokenPayload.role">
+                        {{ menuItem.name }}
+                    </a>
+                </li>
+            </ul>
+
+        </div> -->
 
         <span fxFlex></span>
-
         <app-header></app-header>
-
     </mat-toolbar>
 
     <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
-
-        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
-            fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
-
+        <mat-sidenav #snav id="snav" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0"
+            [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
             <app-sidebar></app-sidebar>
         </mat-sidenav>
-
         <mat-sidenav-content class="page-wrapper">
             <div class="page-content">
                 <router-outlet></router-outlet>
             </div>
         </mat-sidenav-content>
-
-
     </mat-sidenav-container>
 
 </div>
