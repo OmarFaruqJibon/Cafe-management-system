@@ -1,10 +1,10 @@
 <mat-card class="order-header">
     <b>
         <span class="content-title">Manage Orders</span>
-        <button mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
+        <!-- <button mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
             (click)="submitAction()">
             Submit & Get Bill
-        </button>
+        </button> -->
     </b>
 </mat-card>
 
@@ -145,9 +145,21 @@
             Add
         </button>
 
-        <button mat-flat-button color="primary" class="float-right">
-            Total Amount: {{ totalAmount }}
+
+
+
+        <button class="submit-bill" mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
+            (click)="submitAction()">
+            Submit & Get Bill
         </button>
+
+        <p class="totalAmount float-right"> Total Amount: {{ totalAmount }} </p>
+
+
+        <!-- <button mat-flat-button color="primary" class="float-right">
+            Total Amount: {{ totalAmount }}
+        </button> -->
+
     </div>
 
 
@@ -190,7 +202,18 @@
                 </button>
             </td>
         </ng-container>
+
+
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+
     </table>
+
+    <!-- <button class="submit-bill" mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()"
+        (click)="submitAction()">
+        Submit & Get Bill
+    </button> -->
+
 </div>

@@ -1,34 +1,49 @@
-.float-right{
+.float-right {
     float: right;
 }
 
-.order-header{
+.order-header {
     background-color: rgb(240, 240, 240) !important;
-    margin-bottom: 20px;
+    margin: 20px 20px;
     padding: 20px 16px;
-    margin-right: 30px;
-    margin-top: 20px;
 }
 
-.order-body{
+.order-body {
     padding: 10px;
-    margin-top: 20px;
-    margin-right: 30px;
+    margin: 20px 20px;
     color: rgb(255, 255, 255);
 }
 
-.mat-form-field{
+.mat-form-field {
     margin-right: 10px;
     margin-top: 10px;
 
 }
-.order-form{
+
+.order-form {
     color: rgb(153, 4, 4) !important;
 }
+
 .mat-form-field {
     color: rgb(0, 128, 85);
 }
 
-.mat-label{
+.mat-label {
     color: rgb(255, 255, 255) !important;
+}
+
+.submit-bill {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.totalAmount {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    margin-right: 16px;
+    margin-top: 2px;
+    background-color: #7b1fa2;
+    padding: 7px;
+    border-radius: 3px;
 }
