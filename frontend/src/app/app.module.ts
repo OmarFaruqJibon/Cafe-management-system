@@ -7,10 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material-module';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-// import { FlexLayoutModule } from '@angular/flex-layout/flex-layout';
-// import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { SharedModule } from './shared/shared.module';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
@@ -42,7 +38,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    // FlexLayoutModule,
     SharedModule,
     HttpClientModule,
     MatFormFieldModule,
